@@ -7,15 +7,26 @@
 <body>
 <style>
     .more{text-align: center;}
-    .more a{position: relative; text-decoration: none;}
+     a{position: relative; text-decoration: none;}
     .more a:before{content: ""; position: absolute; bottom: -5px; width: 100%;
         border-bottom: 1px solid #444;}
     /*after要注意的是需增加left：0；*/
     .more a:after{content: ""; position: absolute; bottom: -8px; width: 100%;
         border-bottom: 1px solid #444; left: 0;}
+
+    .demo2{text-align: center; margin-top: 5%;}
+    .demo2 a{border-bottom: 1px solid #444;}
+    .demo2 a:after{content: ""; position: absolute; bottom: -5px; width: 100%; left: 0;
+        border-bottom: 1px solid #444;}
 </style>
+<!--方法1 利用伪类before和after-->
 <div class="more">
     <a href="#">more</a>
+</div>
+
+<!--方法2  利用伪类after加border-bottom;-->
+<div class="demo2">
+    <a href="#">more2</a>
 </div>
 </body>
 </html>
