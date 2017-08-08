@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+
+</head>
+<body>
+
+
+<section id="parent" style="width: 300px; height: 300px; background: #f00; margin: 0 auto;">88</section>
+
+<script>
+var oParent;
+var distance=30; //定义左右滑动超过多少才算是滑动生效；
+function swipe(obj) {
+     oParent=document.getElementById(obj);
+}
+
+swipe.prototype.fn=function () {
+    var a,b;
+    oParent.addEventListener('touchstart',function (e) {
+        a = Math.round(e.touches[0].pageX);
+    });
+
+    oParent.addEventListener('touchmove',function (e) {
+        b = Math.round(e.touches[0].pageX);
+    });
+
+    oParent.addEventListener('touchend',function (e) {
+        if(b - a > distance ){
+            console.log('you swipe right just now!');
+            swipeLeft();
+        }else if(b - a < -distance){
+            console.log('you swipe left just now!');
+            swipeRight();
+        }
+    });
+};
+
+//以下必须引用，以id作为索引
+var yy=new swipe('parent');
+yy.fn();
+function swipeLeft() {
+    haha();//往左边滑动时要执行的方法，方法的数量不限；
+}
+function swipeRight() {
+   haha2()//往右边滑动时要执行的方法，方法的数量不限；
+}
+
+
+//以下是自定义方法示例，只需要放到swipeLeft，或者swipeRight中执行即可；（自定义方法的数量不限）
+function haha() {
+    console.log(22222)
+}
+function haha2() {
+    console.log(3333)
+}
+</script>
+</body>
+</html>
+
+
+
